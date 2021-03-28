@@ -2,24 +2,30 @@
 import random
 from flask import Flask, request
 from pymessenger.bot import Bot
+import os
 # Tham khảo tại đây: https://www.twilio.com/blog/2017/12/facebook-messenger-bot-python.html
 app = Flask(__name__)
 # ACCESS_TOKEN của trang `Demo RS`
 # ACCESS_TOKEN = 'EAAGNZAZCsaZBD0BAOb6ngiZCJC3tUmhcEBniGFRmllSkoZBBHvnqRqufd8eWhS26ezwClMhIW133YSdCNfOGIAjU2kVpcjadS27IbMAIRZANtijl6a7BZAniU4ZCegS1a5sSv63YZBpIU0ZA4CRqZAaCLh6mVJ2KzmqbQxMJZAcYAK1aDQZDZD'
+
 # ACCESS TOKEN của trang `Page for Recommendation System`
-ACCESS_TOKEN = 'EAAGNZAZCsaZBD0BAGPGrZBxJoud24MFT7Btw60qpZC2EyBDFEWo4hJZBOdiE9CYoNNVeQNTKVcr62KgNVgjzlP8XKNkLLeF1PicirxnKN9dzZAtBgAa1Nuc2oVKkVv9PeEgDgIrEvzndlbmj1wz8WiJZAjPP0beDIvrZA9vrSF3LzEQZDZD'
-VERIFY_TOKEN = 'secret'
+# ACCESS_TOKEN = 'EAAGNZAZCsaZBD0BAGPGrZBxJoud24MFT7Btw60qpZC2EyBDFEWo4hJZBOdiE9CYoNNVeQNTKVcr62KgNVgjzlP8XKNkLLeF1PicirxnKN9dzZAtBgAa1Nuc2oVKkVv9PeEgDgIrEvzndlbmj1wz8WiJZAjPP0beDIvrZA9vrSF3LzEQZDZD'
+# VERIFY_TOKEN = 'secret'
+
+ACCESS_TOKEN = os.environ('ACCESS_TOKEN')
+VERIFY_TOKEN = os.environ('VERIFY_TOKEN')
 bot = Bot(ACCESS_TOKEN)
 
 # We will receive messages that Facebook sends our bot at this endpoint
 
 
-@app.route("/webhook", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def receive_message():
     if request.method == 'GET':
         """Before allowing people to message your bot, Facebook has implemented a verify token
         that confirms all requests that your bot receives came from Facebook."""
         token_sent = request.args.get("hub.verify_token")
+        print(token_sent)
         return verify_fb_token(token_sent)
     # if the request was not get, it must be POST and we can just proceed with sending a message back to user
     else:

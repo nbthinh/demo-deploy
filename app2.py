@@ -12,8 +12,8 @@ app = Flask(__name__)
 # ACCESS_TOKEN = 'EAAGNZAZCsaZBD0BAGPGrZBxJoud24MFT7Btw60qpZC2EyBDFEWo4hJZBOdiE9CYoNNVeQNTKVcr62KgNVgjzlP8XKNkLLeF1PicirxnKN9dzZAtBgAa1Nuc2oVKkVv9PeEgDgIrEvzndlbmj1wz8WiJZAjPP0beDIvrZA9vrSF3LzEQZDZD'
 # VERIFY_TOKEN = 'secret'
 
-ACCESS_TOKEN = os.environ('ACCESS_TOKEN')
-VERIFY_TOKEN = os.environ('VERIFY_TOKEN')
+ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+VERIFY_TOKEN = os.environ['VERIFY_TOKEN']
 bot = Bot(ACCESS_TOKEN)
 
 # We will receive messages that Facebook sends our bot at this endpoint

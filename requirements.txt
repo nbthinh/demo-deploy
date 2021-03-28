@@ -1,6 +1,3 @@
-absl-py==0.12.0
-aenum==2.2.6
-alabaster==0.7.12
 apiai==1.2.3
 APScheduler==3.6.3
 astroid==2.4.2
@@ -16,8 +13,6 @@ catalogue==2.0.1
 certifi==2020.12.5
 chardet==3.0.4
 chatter==0.1.3
-ChatterBot==1.0.8
-chatterbot-corpus==1.1.4
 click==7.1.2
 colorama==0.4.4
 coverage==5.5
@@ -28,7 +23,6 @@ de-core-news-sm @ https://github.com/explosion/spacy-models/releases/download/de
 decorator==4.4.2
 docopt==0.6.2
 docutils==0.16
-en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.1.0/en_core_web_sm-2.1.0.tar.gz
 fbchat==1.9.7
 flake8==3.9.0
 Flask==0.12.2
@@ -36,10 +30,6 @@ flatbuffers==1.12
 forgebox==0.3.5
 future==0.18.2
 gast==0.3.3
-google==2.0.2
-google-auth==1.28.0
-google-auth-oauthlib==0.4.3
-google-pasta==0.2.0
 grpcio==1.32.0
 gunicorn==20.0.4
 h5py==2.10.0
@@ -52,8 +42,6 @@ itsdangerous==1.1.0
 Jinja2==2.11.3
 joblib==0.17.0
 jsondatabase==0.1.7
-Keras==2.4.3
-Keras-Preprocessing==1.1.2
 keyring==23.0.0
 kiwisolver==1.3.1
 lazy-object-proxy==1.4.3
@@ -61,12 +49,10 @@ lxml==4.4.1
 Markdown==3.3.4
 MarkupSafe==1.1.1
 mathparse==0.1.2
-matplotlib==3.3.3
 mccabe==0.6.1
 murmurhash==1.0.5
 mysql-connector-python==8.0.23
 networkx==2.5
-nltk==3.5
 nose==1.3.7
 numpy==1.19.2
 oauthlib==3.1.0
@@ -93,9 +79,6 @@ pylint==2.6.0
 pymessenger==0.0.7.0
 pymongo==3.11.3
 pyparsing==2.4.7
-python-dateutil==1.5
-python-telegram-bot==13.4.1
-python-twitter==3.5
 pytz==2020.4
 PyYAML==3.13
 readme-renderer==29.0
@@ -128,10 +111,6 @@ sphinxcontrib-serializinghtml==1.1.4
 sphinxcontrib-websupport==1.2.4
 SQLAlchemy==1.3.23
 srsly==1.0.5
-tensorboard==2.4.1
-tensorboard-plugin-wit==1.8.0
-tensorflow==2.4.1
-tensorflow-estimator==2.4.0
 termcolor==1.1.0
 thinc==7.0.8
 threadpoolctl==2.1.0

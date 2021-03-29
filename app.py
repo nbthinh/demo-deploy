@@ -37,7 +37,28 @@ def demo():
     # ourdata = ourdata[0][2]
     col_name = ["id_sanpham", "Loai_sp", "Ten_sp", "Mo_ta_sp", "Gia_tien", "Cau_hinh"]
     df = pd.DataFrame(ourdata, columns=col_name)
-    # print(df)
+    replace_by_space = ["/", ",", "-", ". ", "\n"]
+    replace_by_ignore = ["(", ")", "."]
+    added_col = []
+    print(df)
+    vectorizer = TfidfVectorizer()
+    vectorizer.fit(df['Ten_sp'])
+    tfidf = vectorizer.transform(df['Ten_sp'])
+    feature_vector = tfidf.todense()
+    # de = pd.DataFrame(["ADFJFFJJ"], collums)
+    _2tfidf = vectorizer.transform(["Macbook"])
+    print(_2tfidf.toarray())
+    print("#######################")
+    print(tfidf.toarray())
+    sim_scores = linear_kernel(_2tfidf, tfidf)
+    print("########################")
+    print(sim_scores)
+    sim_scores_idx = list(enumerate(sim_scores[0]))
+    print(sim_scores_idx)
+    sim_scores = sorted(sim_scores_idx, key=lambda x: x[1], reverse=True)
+    idx_choose = sim_scores[0]
+    # print(, idx_choose)
+
     return "Thay phun dep trai"
 
 @app.route("/", methods=['GET', 'POST'])
@@ -102,7 +123,7 @@ def receive_message():
                         """
                         _2tfidf = vectorizer.transform([text])
                         sim_scores = linear_kernel(_2tfidf, tfidf)
-                        sim_scores_idx = list(enumerate(sim_scores))
+                        sim_scores_idx = list(enumerate(sim_scores[0]))
                         sim_scores = sorted(sim_scores_idx, key=lambda x: x[1], reverse=True)
                         idx_choose = sim_scores[0]
                         returntext = df['Ten_sp'].iloc(idx_choose)

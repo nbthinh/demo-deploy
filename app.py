@@ -32,7 +32,16 @@ bot = Bot(ACCESS_TOKEN)
 # We will receive messages that Facebook sends our bot at this endpoint
 @app.route("/demo")
 def demo():
-    demo = "Thằng rich"
+    DB_HOST = 'ec2-23-21-229-200.compute-1.amazonaws.com'
+    DB_NAME = 'd4k5c62e1ofteh'
+    DB_USER = 'gljdcsupgxcqkl'
+    DB_PASS = '0f13baa951eff711d3645bca70aeea92a8e471d9c7ea66bc2410d512046f9cfa'
+    conn = psycopg2.connect(database=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
+    sql ='''SELECT * FROM EMPLOYEE'''
+    cur = conn.cursor()
+    cur.execute(sql)
+    demo = cur.fetchmany(2)
+    demo = demo[0][0]
     return demo
 
 @app.route("/", methods=['GET', 'POST'])

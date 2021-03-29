@@ -32,7 +32,7 @@ bot = Bot(ACCESS_TOKEN)
 # We will receive messages that Facebook sends our bot at this endpoint
 @app.route("/demo")
 def demo():
-    return "Thay phun dep trai"
+    return str(demo[0][0])
 
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():

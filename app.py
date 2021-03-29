@@ -10,11 +10,11 @@ DB_NAME = 'd4k5c62e1ofteh'
 DB_USER = 'gljdcsupgxcqkl'
 DB_PASS = '0f13baa951eff711d3645bca70aeea92a8e471d9c7ea66bc2410d512046f9cfa'
 conn = psycopg2.connect(database=DB_NAME, user=DB_USER, password=DB_PASS, host=DB_HOST)
-# sql ='''SELECT * FROM EMPLOYEE'''
-# cur = conn.cursor()
-# cur.execute(sql)
-# demo = cur.fetchmany(2)
-# print(demo)
+sql ='''SELECT * FROM EMPLOYEE'''
+cur = conn.cursor()
+cur.execute(sql)
+demo = cur.fetchmany(2)
+print(demo[0][0])
 
 # Tham khảo tại đây: https://www.twilio.com/blog/2017/12/facebook-messenger-bot-python.html
 app = Flask(__name__)
@@ -32,7 +32,7 @@ bot = Bot(ACCESS_TOKEN)
 # We will receive messages that Facebook sends our bot at this endpoint
 @app.route("/demo")
 def demo():
-    return conn
+    return "Thay phun dep trai"
 
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():

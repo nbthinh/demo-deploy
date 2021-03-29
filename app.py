@@ -56,8 +56,12 @@ def demo():
     sim_scores_idx = list(enumerate(sim_scores[0]))
     print(sim_scores_idx)
     sim_scores = sorted(sim_scores_idx, key=lambda x: x[1], reverse=True)
-    idx_choose = sim_scores[0]
+    print(sim_scores)
+    idx_choose = sim_scores[0][0]
     # print(, idx_choose)
+    # returntext = df['Ten_sp'].iloc(idx_choose)
+    print(idx_choose)
+    print(df['Ten_sp'].tolist()[idx_choose])
 
     return "Thay phun dep trai"
 
@@ -125,8 +129,8 @@ def receive_message():
                         sim_scores = linear_kernel(_2tfidf, tfidf)
                         sim_scores_idx = list(enumerate(sim_scores[0]))
                         sim_scores = sorted(sim_scores_idx, key=lambda x: x[1], reverse=True)
-                        idx_choose = sim_scores[0]
-                        returntext = df['Ten_sp'].iloc(idx_choose)
+                        idx_choose = sim_scores[0][0]
+                        returntext = df['Ten_sp'].tolist()[idx_choose]
                         """
                         Tạm thời giải thuật recommendation system sẽ viết trong này
                         """

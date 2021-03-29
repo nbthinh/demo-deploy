@@ -14,7 +14,6 @@ sql ='''SELECT * FROM EMPLOYEE'''
 cur = conn.cursor()
 cur.execute(sql)
 demo = cur.fetchmany(2)
-demo = "Thằng rich"
 # print(demo[0][0])
 
 # Tham khảo tại đây: https://www.twilio.com/blog/2017/12/facebook-messenger-bot-python.html
@@ -33,6 +32,7 @@ bot = Bot(ACCESS_TOKEN)
 # We will receive messages that Facebook sends our bot at this endpoint
 @app.route("/demo")
 def demo():
+    demo = "Thằng rich"
     return demo
 
 @app.route("/", methods=['GET', 'POST'])

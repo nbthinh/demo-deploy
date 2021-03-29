@@ -40,7 +40,8 @@ def demo():
     sql ='''SELECT * FROM san_pham'''
     cur = conn.cursor()
     cur.execute(sql)
-    demo = cur.fetchmany(2)
+    demo = cur.fetchall()
+    print(demo)
     demo = demo[0][2]
     return demo
 
@@ -64,7 +65,7 @@ def receive_message():
         cur = conn.cursor()
         cur.execute(sql)
         ourdata = cur.fetchmany(2)
-        print(ourdata)
+        # print(ourdata)
 
         output = request.get_json()
         for event in output['entry']:
@@ -73,16 +74,18 @@ def receive_message():
                 if message.get('message'):
                     # Facebook Messenger ID for user so we know where to send response back to
                     recipient_id = message['sender']['id']
-                    if message['message'].get('text'):
+                    text = message['message'].get('text')
+                    if text:
                         response_sent_text = get_message()
                         """
                         Tạm thời giải thuật recommendation system sẽ viết trong này
                         """
-                        send_message(recipient_id, response_sent_text)
+                        send_message(recipient_id, text)
                     # if user sends us a GIF, photo,video, or any other non-text item
-                    if message['message'].get('attachments'):
-                        response_sent_nontext = get_message()
-                        send_message(recipient_id, response_sent_nontext)
+
+                    # if message['message'].get('attachments'):
+                    #     response_sent_nontext = get_message()
+                    #     send_message(recipient_id, response_sent_nontext)
     return "Message Processed"
 
 

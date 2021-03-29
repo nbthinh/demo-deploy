@@ -55,8 +55,6 @@ def receive_message():
                         """
                         Tạm thời giải thuật recommendation system sẽ viết trong này
                         """
-                        response_sent_text = demo[0][0]
-
                         send_message(recipient_id, response_sent_text)
                     # if user sends us a GIF, photo,video, or any other non-text item
                     if message['message'].get('attachments'):

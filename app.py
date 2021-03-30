@@ -133,7 +133,8 @@ def receive_message():
                         # returntext = df['Ten_sp'].tolist()[idx_choose]
                         rec_product_name = df['Ten_sp'].iloc[idx_choose]
                         rec_product_desc = df['Mo_ta_sp'].iloc[idx_choose]
-                        returntext = rec_product_name + "\n" + rec_product_desc
+                        rec_product_price = df['Gia_tien'].iloc[idx_choose]
+                        returntext = "Tên sản phẩm:\n----------\n" + rec_product_name + "\n----------\nMô tả sản phẩm:\n----------\n" + rec_product_desc + "\n----------\n" + rec_product_price
                         """
                         Tạm thời giải thuật recommendation system sẽ viết trong này
                         """

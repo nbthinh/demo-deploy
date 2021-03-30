@@ -134,7 +134,7 @@ def receive_message():
                         rec_product_name = df['Ten_sp'].iloc[idx_choose]
                         rec_product_desc = df['Mo_ta_sp'].iloc[idx_choose]
                         rec_product_price = df['Gia_tien'].iloc[idx_choose]
-                        returntext = rec_product_name + "\n" + rec_product_desc + "\n" _ rec_product_price
+                        returntext = rec_product_name + "\n" + rec_product_desc + "\n" + rec_product_price
                         """
                         Tạm thời giải thuật recommendation system sẽ viết trong này
                         """

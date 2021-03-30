@@ -63,7 +63,7 @@ def demo():
     print(idx_choose)
     print(df['Ten_sp'].tolist()[idx_choose])
 
-    return "Thay phun dep trai"
+    return "Demo"
 
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():

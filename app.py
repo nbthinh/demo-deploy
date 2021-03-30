@@ -130,7 +130,10 @@ def receive_message():
                         sim_scores_idx = list(enumerate(sim_scores[0]))
                         sim_scores = sorted(sim_scores_idx, key=lambda x: x[1], reverse=True)
                         idx_choose = sim_scores[0][0]
-                        returntext = df['Ten_sp'].tolist()[idx_choose]
+                        # returntext = df['Ten_sp'].tolist()[idx_choose]
+                        rec_product_name = df['Ten_sp'].iloc[idx_choose]
+                        rec_product_desc = df['Mo_ta_sp'].iloc[idx_choose]
+                        returntext = rec_product_name + "\n" + rec_product_desc
                         """
                         Tạm thời giải thuật recommendation system sẽ viết trong này
                         """
